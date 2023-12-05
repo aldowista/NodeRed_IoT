@@ -35,6 +35,7 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
   espClient.setCACert(root_ca);
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
+  client.setBufferSize(1024);
 }
 
 void reconnect() {
@@ -46,6 +47,8 @@ void reconnect() {
     // Attempt to connect
     if (client.connect(clientId.c_str(), mqtt_username.c_str(), mqtt_password.c_str())) {
     Serial.println(": connected");
+    Serial.println(mqtt_username.c_str());
+    Serial.println(mqtt_password.c_str());
     client.subscribe(usrAction_topic.c_str());
       //client.subscribe(dht11_temperature);   // subscribe the topics here
       //client.subscribe(dht11_humidity);   // subscribe the topics here
@@ -53,6 +56,8 @@ void reconnect() {
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");   // Wait 5 seconds before retrying
+      Serial.println(mqtt_username.c_str());
+      Serial.print( mqtt_password.c_str());
       delay(5000);
     }
   }
@@ -84,3 +89,4 @@ void publishMessage(String topic, String payload , boolean retained){
   if (client.publish(topic.c_str(), payload.c_str(), true))
   Serial.println("Message publised ["+String(topic)+"]: "+payload);
 }
+

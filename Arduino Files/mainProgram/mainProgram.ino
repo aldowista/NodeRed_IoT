@@ -3,7 +3,9 @@
 #include <WiFiClientSecure.h>
 #include "DHT.h"
 #include "AESLib.h"
-
+#include <SHA256.h>
+#include <Base64.h> 
+//#include "BlockCipher.h"
 // DEVICE NO
 String device_suffix = "2";
 
@@ -17,7 +19,7 @@ String device_suffix = "2";
 // Wi-Fi and MQTT Credentials
 const char* ssid = "estudines Xl2";
 const char* password = "couronne470";
-const char* mqtt_server = "f01d92822ed54ac88447d7016a115c49.s1.eu.hivemq.cloud"; // replace with your broker url
+const char* mqtt_server = "d9bbc92ca3ee4c19814e290829169611.s2.eu.hivemq.cloud"; // replace with your broker url
 // Dynamic generation of MQTT credentials
 String mqtt_username = String("sensorNode") + String(device_suffix);
 String mqtt_password = String("sensorNode") + String(device_suffix);
@@ -56,6 +58,7 @@ void handleButton();
 SensorData readSensor();
 
 void setup() {
+  // connect serial terminal
   Serial.begin(9600);
   while (!Serial) delay(1);
   
@@ -71,27 +74,32 @@ void setup() {
   aesLib.set_paddingmode(paddingMode::CMS);
 }
 
-
 void loop() {
+  Serial.println("\n\n###");
   if (!client.connected()) reconnect(); // check if client is connected
   client.loop();
   
-  handleButton();
+  handleButtonClick();
 
 
   SensorData sensorData = readSensor();
-  if (!isnan(sensorData.temperature) && !isnan(sensorData.humidity)) {
+  if (!isnan(sensorData.temperature) && !isnan(sensorData.humidity)) { // if data read
 
-      String encryptedTemperature = encrypt_impl(strdup(String(sensorData.temperature).c_str()));
-      Serial.printf("encryptedTemperature: %s", encryptedTemperature);
+      String encryptedTemperature = encrypt_impl(strdup(String("23.60").c_str()));
+      String hashedTemperature = hash_impl(strdup(String("23.60").c_str()));
+      String encryptedHashedTemperature = encrypt_impl(strdup(hashedTemperature.c_str()));
+      //Serial.printf("\nencryptedTemperature: %s", encryptedTemperature);
+      //Serial.printf("\nhashedTemperature: %s",hashedTemperature );
+      String temperatureToSend = encryptedTemperature + "|" + encryptedHashedTemperature;
+      Serial.println("Hashed Temperature "+hashedTemperature);
+      //String encryptedHumidity = encrypt_impl(strdup(String(sensorData.humidity).c_str()));
+      //Serial.printf("\nencryptedHumidity: %s", encryptedHumidity);
 
-      String encryptedHumidity = encrypt_impl(strdup(String(sensorData.temperature).c_str()));
-      Serial.printf("encryptedHumidity: %s", encryptedHumidity);
+      //publishMessage(temperature_topic,String(sensorData.temperature),true);
+      //publishMessage(humidity_topic,String(sensorData.humidity),true);
+      publishMessage(encryptedTemperature_topic, temperatureToSend, true);
+      //publishMessage(encryptedHumidity_topic, encryptedHumidity, true);
 
-      publishMessage(temperature_topic,String(sensorData.temperature),true);
-      publishMessage(humidity_topic,String(sensorData.humidity),true);
-      publishMessage(encryptedTemperature_topic, encryptedTemperature, true);
-      publishMessage(encryptedHumidity_topic, encryptedHumidity, true);
   }
 }
 

@@ -1,4 +1,4 @@
-void handleButton(){
+void handleButtonClick(){
   if (digitalRead(BUTTON_PIN) == HIGH) {
     digitalWrite(LED1_PIN, HIGH);
     publishMessage(pirSensor_topic,String(1),true);
