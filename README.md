@@ -5,5 +5,4 @@ IoT Lab Project
 
 ### About
 
-This is your project's README.md file. It helps users understand what your
-project does, how to use it and anything else they may need to know.
+In this lab project, we were given ESP32 DEV boards and tasked with creating a system using the MQTT protocol and a dashboard of our choice. We selected NodeRed Dashboard for its user-friendly interface to display our data. This document details our work from setting up the ESP32 boards, choosing and configuring HiveMQ Cloud as our MQTT broker, to implementing security features. 
