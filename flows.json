@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "1ef184365338606a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "fda40ddd2560b63d",
         "type": "subflow",
         "name": "AES",
@@ -344,7 +352,7 @@
         "id": "0ec95b9bdb8e7501",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "f01d92822ed54ac88447d7016a115c49.s1.eu.hivemq.cloud",
+        "broker": "d9bbc92ca3ee4c19814e290829169611.s2.eu.hivemq.cloud",
         "port": "8883",
         "tls": "3069d064eaeb4b91",
         "clientid": "nodeRed",
@@ -876,76 +884,11 @@
         ]
     },
     {
-        "id": "a05e3aacd8ed2e81",
-        "type": "ui_chart",
-        "z": "0ea2520bdfb232c5",
-        "name": "Temperature Chart",
-        "group": "2bc9383be496ea4b",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "label": "Temperature ",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 2950,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "744b6e1d499d7964",
-        "type": "ui_text",
-        "z": "0ea2520bdfb232c5",
-        "group": "2bc9383be496ea4b",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Temperature Text",
-        "label": "Temperature:",
-        "format": "{{msg.payload}} &deg;C",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 2950,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "7cfd9868dbafea19",
+        "id": "d173af45363cdf6c",
         "type": "mqtt out",
         "z": "0ea2520bdfb232c5",
         "name": "",
-        "topic": "usrAction2",
+        "topic": "usrAction1",
         "qos": "",
         "retain": "true",
         "respTopic": "",
@@ -954,18 +897,18 @@
         "correl": "",
         "expiry": "",
         "broker": "0ec95b9bdb8e7501",
-        "x": 2150,
-        "y": 680,
+        "x": 570,
+        "y": 880,
         "wires": []
     },
     {
-        "id": "3c06b399dc2107ee",
+        "id": "46fb510cdd2f4797",
         "type": "ui_switch",
         "z": "0ea2520bdfb232c5",
         "name": "Lamp Toggle",
         "label": "Lamp Toggle",
         "tooltip": "",
-        "group": "7989444b934d9ec1",
+        "group": "6307337d97088963",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -984,28 +927,28 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 1970,
-        "y": 680,
+        "x": 390,
+        "y": 880,
         "wires": [
             [
-                "7cfd9868dbafea19"
+                "d173af45363cdf6c"
             ]
         ]
     },
     {
-        "id": "945ffe3411540929",
+        "id": "836d3f9c274b8f6f",
         "type": "ui_audio",
         "z": "0ea2520bdfb232c5",
         "name": "",
-        "group": "7989444b934d9ec1",
+        "group": "6307337d97088963",
         "voice": "Google US English",
         "always": false,
-        "x": 2340,
-        "y": 800,
+        "x": 760,
+        "y": 1000,
         "wires": []
     },
     {
-        "id": "338c4ad6209ee545",
+        "id": "718fc767d19d6c7a",
         "type": "change",
         "z": "0ea2520bdfb232c5",
         "name": "",
@@ -1034,20 +977,20 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2140,
-        "y": 800,
+        "x": 560,
+        "y": 1000,
         "wires": [
             [
-                "945ffe3411540929"
+                "836d3f9c274b8f6f"
             ]
         ]
     },
     {
-        "id": "a447945dfe7706d4",
+        "id": "8410f4a263ac4b84",
         "type": "mqtt in",
         "z": "0ea2520bdfb232c5",
         "name": "",
-        "topic": "pirSensor2",
+        "topic": "pirSensor1",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0ec95b9bdb8e7501",
@@ -1055,17 +998,18 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1960,
-        "y": 800,
+        "x": 380,
+        "y": 1000,
         "wires": [
             [
-                "338c4ad6209ee545",
-                "adab59370395764f"
+                "718fc767d19d6c7a",
+                "4a80d2a7fcae1456",
+                "28c62795c4de6b23"
             ]
         ]
     },
     {
-        "id": "adab59370395764f",
+        "id": "4a80d2a7fcae1456",
         "type": "change",
         "z": "0ea2520bdfb232c5",
         "name": "",
@@ -1094,19 +1038,19 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2140,
-        "y": 860,
+        "x": 560,
+        "y": 1060,
         "wires": [
             [
-                "cf27fab8fddbcf8b"
+                "a97a5cc917001c10"
             ]
         ]
     },
     {
-        "id": "cf27fab8fddbcf8b",
+        "id": "a97a5cc917001c10",
         "type": "ui_text",
         "z": "0ea2520bdfb232c5",
-        "group": "7989444b934d9ec1",
+        "group": "6307337d97088963",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -1119,99 +1063,16 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 2350,
-        "y": 860,
+        "x": 770,
+        "y": 1060,
         "wires": []
     },
     {
-        "id": "c659a4a92cf19bcf",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.decrypted",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2720,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "a566bdc692bed62c",
-        "type": "cipher",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "function": "Decrypt",
-        "algorithm": "AES-ECB",
-        "iv": "00000000000000000000000000000000",
-        "key": "657261736d75736d756e647573313233",
-        "ivSize": "16",
-        "keySize": "16",
-        "x": 2500,
-        "y": 200,
-        "wires": [
-            [
-                "c659a4a92cf19bcf",
-                "d96c99f3d9b26901"
-            ]
-        ]
-    },
-    {
-        "id": "fcd591111cf81443",
-        "type": "decode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Dec: base64",
-        "encode": "Base64",
-        "x": 2190,
-        "y": 120,
-        "wires": [
-            [
-                "a61558002bd4205f"
-            ]
-        ]
-    },
-    {
-        "id": "9849c3c20c422f47",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2580,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "a61558002bd4205f",
-        "type": "encode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Enc: Hex",
-        "encode": "Hex",
-        "x": 2360,
-        "y": 120,
-        "wires": [
-            [
-                "9849c3c20c422f47",
-                "a566bdc692bed62c"
-            ]
-        ]
-    },
-    {
-        "id": "0d14a2c34d235f79",
+        "id": "161fbdce10318d9b",
         "type": "mqtt in",
         "z": "0ea2520bdfb232c5",
         "name": "",
-        "topic": "encryptTemp2",
+        "topic": "encryptTemp1",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0ec95b9bdb8e7501",
@@ -1219,103 +1080,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1930,
-        "y": 120,
+        "x": 330,
+        "y": 80,
         "wires": [
             [
-                "fcd591111cf81443"
+                "51fe418c4f470374"
             ]
         ]
     },
     {
-        "id": "9b38150b67cffd31",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2740,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "031df4fd67903695",
-        "type": "cipher",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "function": "Decrypt",
-        "algorithm": "AES-ECB",
-        "iv": "00000000000000000000000000000000",
-        "key": "657261736d75736d756e647573313233",
-        "ivSize": "16",
-        "keySize": "16",
-        "x": 2520,
-        "y": 520,
-        "wires": [
-            [
-                "9b38150b67cffd31",
-                "02b6495347c26fd5"
-            ]
-        ]
-    },
-    {
-        "id": "8dccffa276424b15",
-        "type": "decode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Dec: base64",
-        "encode": "Base64",
-        "x": 2210,
-        "y": 440,
-        "wires": [
-            [
-                "d244acba4cde5c27"
-            ]
-        ]
-    },
-    {
-        "id": "6f3fe0e4acb3ff37",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2600,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "d244acba4cde5c27",
-        "type": "encode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Enc: Hex",
-        "encode": "Hex",
-        "x": 2380,
-        "y": 440,
-        "wires": [
-            [
-                "6f3fe0e4acb3ff37",
-                "031df4fd67903695"
-            ]
-        ]
-    },
-    {
-        "id": "f8b97ed82e1b8f93",
+        "id": "6e6e2f7f9511bd9e",
         "type": "mqtt in",
         "z": "0ea2520bdfb232c5",
         "name": "",
-        "topic": "encryptHum2",
+        "topic": "encryptHum1",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0ec95b9bdb8e7501",
@@ -1323,132 +1101,11 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1950,
-        "y": 440,
+        "x": 330,
+        "y": 520,
         "wires": [
             [
-                "8dccffa276424b15"
-            ]
-        ]
-    },
-    {
-        "id": "fc1a8eea17d37364",
-        "type": "ui_text",
-        "z": "0ea2520bdfb232c5",
-        "group": "1a29357cf76cc86c",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Humidity Text",
-        "label": "Humidity:",
-        "format": "{{msg.payload}} &deg;C",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 2920,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "46ecf7da9658c519",
-        "type": "ui_chart",
-        "z": "0ea2520bdfb232c5",
-        "name": "Humidity Chart",
-        "group": "1a29357cf76cc86c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "label": "Humidity",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 2920,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d96c99f3d9b26901",
-        "type": "change",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.decrypted",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2700,
-        "y": 280,
-        "wires": [
-            [
-                "a05e3aacd8ed2e81",
-                "744b6e1d499d7964"
-            ]
-        ]
-    },
-    {
-        "id": "02b6495347c26fd5",
-        "type": "change",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.decrypted",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2700,
-        "y": 620,
-        "wires": [
-            [
-                "fc1a8eea17d37364",
-                "46ecf7da9658c519"
+                "b3e27c8f5c75d45a"
             ]
         ]
     },
@@ -1490,8 +1147,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1390,
-        "y": 340,
+        "x": 1730,
+        "y": 180,
         "wires": [
             []
         ]
@@ -1513,400 +1170,9 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1390,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "d173af45363cdf6c",
-        "type": "mqtt out",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "topic": "usrAction1",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0ec95b9bdb8e7501",
-        "x": 590,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "46fb510cdd2f4797",
-        "type": "ui_switch",
-        "z": "0ea2520bdfb232c5",
-        "name": "Lamp Toggle",
-        "label": "Lamp Toggle",
-        "tooltip": "",
-        "group": "6307337d97088963",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "1",
-        "onvalueType": "num",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "0",
-        "offvalueType": "num",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 410,
-        "y": 740,
-        "wires": [
-            [
-                "d173af45363cdf6c"
-            ]
-        ]
-    },
-    {
-        "id": "836d3f9c274b8f6f",
-        "type": "ui_audio",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "group": "6307337d97088963",
-        "voice": "Google US English",
-        "always": false,
-        "x": 780,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "718fc767d19d6c7a",
-        "type": "change",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "1",
-                "fromt": "num",
-                "to": "Someone detected",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "0",
-                "fromt": "num",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 580,
-        "y": 860,
-        "wires": [
-            [
-                "836d3f9c274b8f6f"
-            ]
-        ]
-    },
-    {
-        "id": "8410f4a263ac4b84",
-        "type": "mqtt in",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "topic": "pirSensor1",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0ec95b9bdb8e7501",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 400,
-        "y": 860,
-        "wires": [
-            [
-                "718fc767d19d6c7a",
-                "4a80d2a7fcae1456"
-            ]
-        ]
-    },
-    {
-        "id": "4a80d2a7fcae1456",
-        "type": "change",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "0",
-                "fromt": "num",
-                "to": "No one detected",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "1",
-                "fromt": "num",
-                "to": "Someone detected",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 580,
-        "y": 920,
-        "wires": [
-            [
-                "a97a5cc917001c10"
-            ]
-        ]
-    },
-    {
-        "id": "a97a5cc917001c10",
-        "type": "ui_text",
-        "z": "0ea2520bdfb232c5",
-        "group": "6307337d97088963",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "PIR Sensor",
-        "format": "{{msg.payload}}",
-        "layout": "row-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 790,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "2876c7439b86ee41",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.decrypted",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "20b956abdfed042f",
-        "type": "cipher",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "function": "Decrypt",
-        "algorithm": "AES-ECB",
-        "iv": "00000000000000000000000000000000",
-        "key": "657261736d75736d756e647573313233",
-        "ivSize": "16",
-        "keySize": "16",
-        "x": 940,
-        "y": 260,
-        "wires": [
-            [
-                "2876c7439b86ee41",
-                "9ccdb9c6803d7b4a"
-            ]
-        ]
-    },
-    {
-        "id": "f9cd020b897c273b",
-        "type": "decode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Dec: base64",
-        "encode": "Base64",
-        "x": 630,
-        "y": 180,
-        "wires": [
-            [
-                "8d82bf517f4415fa"
-            ]
-        ]
-    },
-    {
-        "id": "7751bb5de6e2b0a3",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1020,
+        "x": 1730,
         "y": 120,
         "wires": []
-    },
-    {
-        "id": "8d82bf517f4415fa",
-        "type": "encode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Enc: Hex",
-        "encode": "Hex",
-        "x": 800,
-        "y": 180,
-        "wires": [
-            [
-                "7751bb5de6e2b0a3",
-                "20b956abdfed042f"
-            ]
-        ]
-    },
-    {
-        "id": "161fbdce10318d9b",
-        "type": "mqtt in",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "topic": "encryptTemp1",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0ec95b9bdb8e7501",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 370,
-        "y": 180,
-        "wires": [
-            [
-                "f9cd020b897c273b"
-            ]
-        ]
-    },
-    {
-        "id": "1a33bce4de844ee3",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "283c63a323ad5569",
-        "type": "cipher",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "function": "Decrypt",
-        "algorithm": "AES-ECB",
-        "iv": "00000000000000000000000000000000",
-        "key": "657261736d75736d756e647573313233",
-        "ivSize": "16",
-        "keySize": "16",
-        "x": 960,
-        "y": 580,
-        "wires": [
-            [
-                "1a33bce4de844ee3",
-                "4c1716259011c9b5"
-            ]
-        ]
-    },
-    {
-        "id": "3cf23340f4e47731",
-        "type": "decode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Dec: base64",
-        "encode": "Base64",
-        "x": 650,
-        "y": 500,
-        "wires": [
-            [
-                "5b5edf866f5f465b"
-            ]
-        ]
-    },
-    {
-        "id": "f49b8137f579d827",
-        "type": "debug",
-        "z": "0ea2520bdfb232c5",
-        "name": "Print Payload Result",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "5b5edf866f5f465b",
-        "type": "encode",
-        "z": "0ea2520bdfb232c5",
-        "name": "Enc: Hex",
-        "encode": "Hex",
-        "x": 820,
-        "y": 500,
-        "wires": [
-            [
-                "f49b8137f579d827",
-                "283c63a323ad5569"
-            ]
-        ]
-    },
-    {
-        "id": "6e6e2f7f9511bd9e",
-        "type": "mqtt in",
-        "z": "0ea2520bdfb232c5",
-        "name": "",
-        "topic": "encryptHum1",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0ec95b9bdb8e7501",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 390,
-        "y": 500,
-        "wires": [
-            [
-                "3cf23340f4e47731"
-            ]
-        ]
     },
     {
         "id": "50609b2ff28d6a69",
@@ -1925,8 +1191,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1360,
-        "y": 640,
+        "x": 1700,
+        "y": 540,
         "wires": []
     },
     {
@@ -1967,45 +1233,223 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1360,
-        "y": 720,
+        "x": 1700,
+        "y": 600,
         "wires": [
             []
         ]
     },
     {
-        "id": "9ccdb9c6803d7b4a",
-        "type": "change",
+        "id": "1941ebc1deabbc1b",
+        "type": "decode",
         "z": "0ea2520bdfb232c5",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.decrypted",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1140,
-        "y": 340,
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 610,
+        "y": 120,
         "wires": [
             [
-                "f53fab5b9efeb2a4",
-                "531dc6bd70ba0f3d"
+                "c90d627f723c2acd"
             ]
         ]
     },
     {
-        "id": "4c1716259011c9b5",
-        "type": "change",
+        "id": "c90d627f723c2acd",
+        "type": "encode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "8ef1a55092da4468"
+            ]
+        ]
+    },
+    {
+        "id": "51fe418c4f470374",
+        "type": "function",
+        "z": "0ea2520bdfb232c5",
+        "name": "splitMessage",
+        "func": "// Assuming the incoming payload is a string like \"message|hash\"\nvar parts = msg.payload.split(\"|\"); // Split by the delimiter\n\n// Check if the split is successful\nif(parts.length == 2) {\n    msg.msgEncrypted = parts[0];\n    msg.hashEncrypted = parts[1];\n} else {\n    node.error(\"Invalid payload format\", msg);\n    return null; // Stop the flow if the format is not as expected\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "daa70b9fe7e84b45"
+            ]
+        ]
+    },
+    {
+        "id": "f538d94333befea5",
+        "type": "decode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1250,
+        "y": 120,
+        "wires": [
+            [
+                "722ec3df0cb5e419"
+            ]
+        ]
+    },
+    {
+        "id": "722ec3df0cb5e419",
+        "type": "encode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1260,
+        "y": 160,
+        "wires": [
+            [
+                "776764e8e6487f50"
+            ]
+        ]
+    },
+    {
+        "id": "8ef1a55092da4468",
+        "type": "cipher",
         "z": "0ea2520bdfb232c5",
         "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 620,
+        "y": 200,
+        "wires": [
+            [
+                "a6c44efd0330db0a"
+            ]
+        ]
+    },
+    {
+        "id": "776764e8e6487f50",
+        "type": "cipher",
+        "z": "0ea2520bdfb232c5",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 1260,
+        "y": 200,
+        "wires": [
+            [
+                "aab48e55837b43ed"
+            ]
+        ]
+    },
+    {
+        "id": "d40b1aef9bfeccbd",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-hashEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "hashEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1210,
+        "y": 80,
+        "wires": [
+            [
+                "f538d94333befea5"
+            ]
+        ]
+    },
+    {
+        "id": "daa70b9fe7e84b45",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-msgEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msgEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 80,
+        "wires": [
+            [
+                "1941ebc1deabbc1b"
+            ]
+        ]
+    },
+    {
+        "id": "1c994da299c80c18",
+        "type": "function",
+        "z": "0ea2520bdfb232c5",
+        "name": "verifyHash",
+        "func": "\nif(msg.oldHash === msg.newHash) {\n    msg.payload = msg.msgDecrypted\n} else {\n    node.error(\"Message integrity check failed\");\n    return null; // Stop the flow \n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1510,
+        "y": 160,
+        "wires": [
+            [
+                "531dc6bd70ba0f3d",
+                "f53fab5b9efeb2a4"
+            ]
+        ]
+    },
+    {
+        "id": "41a87d0bb3dc94f5",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "decryptedHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "aab48e55837b43ed",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-payload.decrypted",
         "rules": [
             {
                 "t": "set",
@@ -2020,13 +1464,1831 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1140,
-        "y": 680,
+        "x": 1200,
+        "y": 240,
+        "wires": [
+            [
+                "4dbb1657264c539e"
+            ]
+        ]
+    },
+    {
+        "id": "86b8844ec6eccea3",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 80,
+        "wires": [
+            [
+                "b0b99491b4056aa4"
+            ]
+        ]
+    },
+    {
+        "id": "6149dd5eeef8d702",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "newHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b0b99491b4056aa4",
+        "type": "hash sha256",
+        "z": "0ea2520bdfb232c5",
+        "name": "",
+        "x": 930,
+        "y": 120,
+        "wires": [
+            [
+                "a5623d2166dcd6dc"
+            ]
+        ]
+    },
+    {
+        "id": "4dbb1657264c539e",
+        "type": "decode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1250,
+        "y": 280,
+        "wires": [
+            [
+                "a7282a03daeec2b9"
+            ]
+        ]
+    },
+    {
+        "id": "a7282a03daeec2b9",
+        "type": "encode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1260,
+        "y": 320,
+        "wires": [
+            [
+                "264304fdbf2e2f68"
+            ]
+        ]
+    },
+    {
+        "id": "0ab485196f533845",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "messageDecrypted",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "264304fdbf2e2f68",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "oldHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "oldHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 360,
+        "wires": [
+            [
+                "41a87d0bb3dc94f5",
+                "1c994da299c80c18"
+            ]
+        ]
+    },
+    {
+        "id": "a6c44efd0330db0a",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "msgDecrypted-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "msgDecrypted",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "0ab485196f533845",
+                "86b8844ec6eccea3"
+            ]
+        ]
+    },
+    {
+        "id": "a5623d2166dcd6dc",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "newHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 160,
+        "wires": [
+            [
+                "6149dd5eeef8d702",
+                "d40b1aef9bfeccbd"
+            ]
+        ]
+    },
+    {
+        "id": "9ce2291e1ff73555",
+        "type": "decode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 590,
+        "y": 560,
+        "wires": [
+            [
+                "256e0f9b3da3f25e"
+            ]
+        ]
+    },
+    {
+        "id": "256e0f9b3da3f25e",
+        "type": "encode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 600,
+        "y": 600,
+        "wires": [
+            [
+                "53b1b5218caf4bb8"
+            ]
+        ]
+    },
+    {
+        "id": "f99764eea236f93b",
+        "type": "decode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1230,
+        "y": 560,
+        "wires": [
+            [
+                "399c9b39a181db45"
+            ]
+        ]
+    },
+    {
+        "id": "399c9b39a181db45",
+        "type": "encode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1240,
+        "y": 600,
+        "wires": [
+            [
+                "22ca0559285edc98"
+            ]
+        ]
+    },
+    {
+        "id": "53b1b5218caf4bb8",
+        "type": "cipher",
+        "z": "0ea2520bdfb232c5",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 600,
+        "y": 640,
+        "wires": [
+            [
+                "ae056a3795fe6b0a"
+            ]
+        ]
+    },
+    {
+        "id": "22ca0559285edc98",
+        "type": "cipher",
+        "z": "0ea2520bdfb232c5",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 1240,
+        "y": 640,
+        "wires": [
+            [
+                "3055023ab91c4437"
+            ]
+        ]
+    },
+    {
+        "id": "e09f385caf9a6966",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-hashEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "hashEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1190,
+        "y": 520,
+        "wires": [
+            [
+                "f99764eea236f93b"
+            ]
+        ]
+    },
+    {
+        "id": "c7053b2470769e6d",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-msgEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msgEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "9ce2291e1ff73555"
+            ]
+        ]
+    },
+    {
+        "id": "0e49c3be45ce3a11",
+        "type": "function",
+        "z": "0ea2520bdfb232c5",
+        "name": "verifyHash",
+        "func": "\nif(msg.oldHash === msg.newHash) {\n    msg.payload = msg.msgDecrypted\n} else {\n    node.error(\"Message integrity check failed\");\n    return null; // Stop the flow if the format is not as expected\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1490,
+        "y": 580,
         "wires": [
             [
                 "50609b2ff28d6a69",
                 "21b3b29c7c5b9005"
             ]
         ]
+    },
+    {
+        "id": "662f5f21e6b48027",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "decryptedHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "3055023ab91c4437",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 680,
+        "wires": [
+            [
+                "4e42ecf988ee7083"
+            ]
+        ]
+    },
+    {
+        "id": "e31e535e5cd0d867",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 520,
+        "wires": [
+            [
+                "2ca96288a5f5ef1d"
+            ]
+        ]
+    },
+    {
+        "id": "2d033af0f1f62770",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "newHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "2ca96288a5f5ef1d",
+        "type": "hash sha256",
+        "z": "0ea2520bdfb232c5",
+        "name": "",
+        "x": 910,
+        "y": 560,
+        "wires": [
+            [
+                "7716a1a4a39a5fdb"
+            ]
+        ]
+    },
+    {
+        "id": "4e42ecf988ee7083",
+        "type": "decode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1230,
+        "y": 720,
+        "wires": [
+            [
+                "89f6d435e6438612"
+            ]
+        ]
+    },
+    {
+        "id": "89f6d435e6438612",
+        "type": "encode",
+        "z": "0ea2520bdfb232c5",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1240,
+        "y": 760,
+        "wires": [
+            [
+                "ca79e9db6dbddf1a"
+            ]
+        ]
+    },
+    {
+        "id": "75f3256a37042ed1",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "messageDecrypted",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "ca79e9db6dbddf1a",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "oldHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "oldHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1210,
+        "y": 800,
+        "wires": [
+            [
+                "662f5f21e6b48027",
+                "0e49c3be45ce3a11"
+            ]
+        ]
+    },
+    {
+        "id": "ae056a3795fe6b0a",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "msgDecrypted-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "msgDecrypted",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 680,
+        "wires": [
+            [
+                "75f3256a37042ed1",
+                "e31e535e5cd0d867"
+            ]
+        ]
+    },
+    {
+        "id": "7716a1a4a39a5fdb",
+        "type": "change",
+        "z": "0ea2520bdfb232c5",
+        "name": "newHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 600,
+        "wires": [
+            [
+                "2d033af0f1f62770",
+                "e09f385caf9a6966"
+            ]
+        ]
+    },
+    {
+        "id": "b3e27c8f5c75d45a",
+        "type": "function",
+        "z": "0ea2520bdfb232c5",
+        "name": "splitMessage",
+        "func": "// Assuming the incoming payload is a string like \"message|hash\"\nvar parts = msg.payload.split(\"|\"); // Split by the delimiter\n\n// Check if the split is successful\nif(parts.length == 2) {\n    msg.msgEncrypted = parts[0];\n    msg.hashEncrypted = parts[1];\n} else {\n    node.error(\"Invalid payload format\", msg);\n    return null; // Stop the flow if the format is not as expected\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "c7053b2470769e6d"
+            ]
+        ]
+    },
+    {
+        "id": "28c62795c4de6b23",
+        "type": "debug",
+        "z": "0ea2520bdfb232c5",
+        "name": "pirsensor",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "0d14a2c34d235f79",
+        "type": "mqtt in",
+        "z": "1ef184365338606a",
+        "name": "",
+        "topic": "encryptTemp2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0ec95b9bdb8e7501",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "32b1cbd6ee8b9e46"
+            ]
+        ]
+    },
+    {
+        "id": "e703ed9cafcab43b",
+        "type": "decode",
+        "z": "1ef184365338606a",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "1affcf127492a046"
+            ]
+        ]
+    },
+    {
+        "id": "1affcf127492a046",
+        "type": "encode",
+        "z": "1ef184365338606a",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "45a59530f11c3112"
+            ]
+        ]
+    },
+    {
+        "id": "32b1cbd6ee8b9e46",
+        "type": "function",
+        "z": "1ef184365338606a",
+        "name": "splitMessage",
+        "func": "// Assuming the incoming payload is a string like \"message|hash\"\nvar parts = msg.payload.split(\"|\"); // Split by the delimiter\n\n// Check if the split is successful\nif(parts.length == 2) {\n    msg.msgEncrypted = parts[0];\n    msg.hashEncrypted = parts[1];\n} else {\n    node.error(\"Invalid payload format\", msg);\n    return null; // Stop the flow if the format is not as expected\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "84c6048a7a0b8312"
+            ]
+        ]
+    },
+    {
+        "id": "598e093423388a00",
+        "type": "decode",
+        "z": "1ef184365338606a",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1070,
+        "y": 180,
+        "wires": [
+            [
+                "53f1c691e12f5000"
+            ]
+        ]
+    },
+    {
+        "id": "53f1c691e12f5000",
+        "type": "encode",
+        "z": "1ef184365338606a",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1080,
+        "y": 220,
+        "wires": [
+            [
+                "09ee1950283d12bf"
+            ]
+        ]
+    },
+    {
+        "id": "45a59530f11c3112",
+        "type": "cipher",
+        "z": "1ef184365338606a",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "04e1d3e7e6ae6701"
+            ]
+        ]
+    },
+    {
+        "id": "09ee1950283d12bf",
+        "type": "cipher",
+        "z": "1ef184365338606a",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 1080,
+        "y": 260,
+        "wires": [
+            [
+                "027e0a43467956e1"
+            ]
+        ]
+    },
+    {
+        "id": "3b8e70eb54d814ca",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-hashEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "hashEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 140,
+        "wires": [
+            [
+                "598e093423388a00"
+            ]
+        ]
+    },
+    {
+        "id": "84c6048a7a0b8312",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-msgEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msgEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "e703ed9cafcab43b"
+            ]
+        ]
+    },
+    {
+        "id": "a78837bf9ae3b140",
+        "type": "function",
+        "z": "1ef184365338606a",
+        "name": "verifyHash",
+        "func": "\nif(msg.oldHash === msg.newHash) {\n    msg.payload = msg.msgDecrypted\n} else {\n    node.error(\"Message integrity check failed\");\n    return null; // Stop the flow \n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 220,
+        "wires": [
+            [
+                "608a18f2ae934398",
+                "a33444d6b94f5024"
+            ]
+        ]
+    },
+    {
+        "id": "bd79a326ea5a184a",
+        "type": "debug",
+        "z": "1ef184365338606a",
+        "name": "decryptedHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "027e0a43467956e1",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 300,
+        "wires": [
+            [
+                "2903501214ee2b3f"
+            ]
+        ]
+    },
+    {
+        "id": "944487cd6859e93a",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "7aa27a26ac04c2c5"
+            ]
+        ]
+    },
+    {
+        "id": "d72182a4c26bbb03",
+        "type": "debug",
+        "z": "1ef184365338606a",
+        "name": "newHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7aa27a26ac04c2c5",
+        "type": "hash sha256",
+        "z": "1ef184365338606a",
+        "name": "",
+        "x": 750,
+        "y": 180,
+        "wires": [
+            [
+                "08edfd3eac16e7ed"
+            ]
+        ]
+    },
+    {
+        "id": "2903501214ee2b3f",
+        "type": "decode",
+        "z": "1ef184365338606a",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1070,
+        "y": 340,
+        "wires": [
+            [
+                "e453342f2aae68dc"
+            ]
+        ]
+    },
+    {
+        "id": "e453342f2aae68dc",
+        "type": "encode",
+        "z": "1ef184365338606a",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1080,
+        "y": 380,
+        "wires": [
+            [
+                "6de56b4f2e77e820"
+            ]
+        ]
+    },
+    {
+        "id": "1d11add1813c854d",
+        "type": "debug",
+        "z": "1ef184365338606a",
+        "name": "messageDecrypted",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6de56b4f2e77e820",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "oldHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "oldHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 420,
+        "wires": [
+            [
+                "bd79a326ea5a184a",
+                "a78837bf9ae3b140"
+            ]
+        ]
+    },
+    {
+        "id": "04e1d3e7e6ae6701",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "msgDecrypted-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "msgDecrypted",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "1d11add1813c854d",
+                "944487cd6859e93a"
+            ]
+        ]
+    },
+    {
+        "id": "08edfd3eac16e7ed",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "newHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "d72182a4c26bbb03",
+                "3b8e70eb54d814ca"
+            ]
+        ]
+    },
+    {
+        "id": "608a18f2ae934398",
+        "type": "ui_chart",
+        "z": "1ef184365338606a",
+        "name": "Temperature Chart",
+        "group": "2bc9383be496ea4b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1550,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a33444d6b94f5024",
+        "type": "ui_text",
+        "z": "1ef184365338606a",
+        "group": "2bc9383be496ea4b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Temperature Text",
+        "label": "Temperature:",
+        "format": "{{msg.payload}} &deg;C",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1550,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1282f8a5623d8b46",
+        "type": "mqtt in",
+        "z": "1ef184365338606a",
+        "name": "",
+        "topic": "encryptHum2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0ec95b9bdb8e7501",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "1b1a898fb32e3cab"
+            ]
+        ]
+    },
+    {
+        "id": "baac93ddd98c128a",
+        "type": "decode",
+        "z": "1ef184365338606a",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "c85a9aa9f87da15c"
+            ]
+        ]
+    },
+    {
+        "id": "c85a9aa9f87da15c",
+        "type": "encode",
+        "z": "1ef184365338606a",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 420,
+        "y": 660,
+        "wires": [
+            [
+                "af626dc908b72dc6"
+            ]
+        ]
+    },
+    {
+        "id": "c78044719e93ed1a",
+        "type": "decode",
+        "z": "1ef184365338606a",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1050,
+        "y": 620,
+        "wires": [
+            [
+                "b20ab582253cc8e3"
+            ]
+        ]
+    },
+    {
+        "id": "b20ab582253cc8e3",
+        "type": "encode",
+        "z": "1ef184365338606a",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1060,
+        "y": 660,
+        "wires": [
+            [
+                "3d09ab30850126e0"
+            ]
+        ]
+    },
+    {
+        "id": "af626dc908b72dc6",
+        "type": "cipher",
+        "z": "1ef184365338606a",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 420,
+        "y": 700,
+        "wires": [
+            [
+                "5ca4edcb25555f75"
+            ]
+        ]
+    },
+    {
+        "id": "3d09ab30850126e0",
+        "type": "cipher",
+        "z": "1ef184365338606a",
+        "name": "",
+        "function": "Decrypt",
+        "algorithm": "AES-ECB",
+        "iv": "00000000000000000000000000000000",
+        "key": "657261736d75736d756e647573313233",
+        "ivSize": "16",
+        "keySize": "16",
+        "x": 1060,
+        "y": 700,
+        "wires": [
+            [
+                "5e5884406f0c8e03"
+            ]
+        ]
+    },
+    {
+        "id": "eb21073984e15917",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-hashEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "hashEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 580,
+        "wires": [
+            [
+                "c78044719e93ed1a"
+            ]
+        ]
+    },
+    {
+        "id": "96cd2b298aa1fabb",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-msgEncrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msgEncrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 580,
+        "wires": [
+            [
+                "baac93ddd98c128a"
+            ]
+        ]
+    },
+    {
+        "id": "3df83936a9aff98e",
+        "type": "function",
+        "z": "1ef184365338606a",
+        "name": "verifyHash",
+        "func": "\nif(msg.oldHash === msg.newHash) {\n    msg.payload = msg.msgDecrypted\n} else {\n    node.error(\"Message integrity check failed\");\n    return null; // Stop the flow if the format is not as expected\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 640,
+        "wires": [
+            [
+                "36b373046d8e820f",
+                "61909ed18ffea42d"
+            ]
+        ]
+    },
+    {
+        "id": "62ccd63e900cd822",
+        "type": "debug",
+        "z": "1ef184365338606a",
+        "name": "decryptedHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "5e5884406f0c8e03",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 740,
+        "wires": [
+            [
+                "e4e4657d5fd88573"
+            ]
+        ]
+    },
+    {
+        "id": "e116830b1a130a93",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "payload-payload.decrypted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "63d51eabeada4cb3"
+            ]
+        ]
+    },
+    {
+        "id": "8733966ad22fa65a",
+        "type": "debug",
+        "z": "1ef184365338606a",
+        "name": "newHash",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "63d51eabeada4cb3",
+        "type": "hash sha256",
+        "z": "1ef184365338606a",
+        "name": "",
+        "x": 730,
+        "y": 620,
+        "wires": [
+            [
+                "24057e3509204ec7"
+            ]
+        ]
+    },
+    {
+        "id": "e4e4657d5fd88573",
+        "type": "decode",
+        "z": "1ef184365338606a",
+        "name": "Dec: base64",
+        "encode": "Base64",
+        "x": 1050,
+        "y": 780,
+        "wires": [
+            [
+                "9a1560eaeb521b98"
+            ]
+        ]
+    },
+    {
+        "id": "9a1560eaeb521b98",
+        "type": "encode",
+        "z": "1ef184365338606a",
+        "name": "Enc: Hex",
+        "encode": "Hex",
+        "x": 1060,
+        "y": 820,
+        "wires": [
+            [
+                "270dfba7ad2e3ac7"
+            ]
+        ]
+    },
+    {
+        "id": "04d52d27e507852e",
+        "type": "debug",
+        "z": "1ef184365338606a",
+        "name": "messageDecrypted",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "270dfba7ad2e3ac7",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "oldHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "oldHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 860,
+        "wires": [
+            [
+                "62ccd63e900cd822",
+                "3df83936a9aff98e"
+            ]
+        ]
+    },
+    {
+        "id": "5ca4edcb25555f75",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "msgDecrypted-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "msgDecrypted",
+                "pt": "msg",
+                "to": "payload.decrypted",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "04d52d27e507852e",
+                "e116830b1a130a93"
+            ]
+        ]
+    },
+    {
+        "id": "24057e3509204ec7",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "newHash-payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newHash",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 660,
+        "wires": [
+            [
+                "8733966ad22fa65a",
+                "eb21073984e15917"
+            ]
+        ]
+    },
+    {
+        "id": "36b373046d8e820f",
+        "type": "ui_text",
+        "z": "1ef184365338606a",
+        "group": "1a29357cf76cc86c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Humidity Text",
+        "label": "Humidity:",
+        "format": "{{msg.payload}} %",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1520,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "61909ed18ffea42d",
+        "type": "ui_chart",
+        "z": "1ef184365338606a",
+        "name": "Humidity Chart",
+        "group": "1a29357cf76cc86c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1520,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b1a898fb32e3cab",
+        "type": "function",
+        "z": "1ef184365338606a",
+        "name": "splitMessage",
+        "func": "// Assuming the incoming payload is a string like \"message|hash\"\nvar parts = msg.payload.split(\"|\"); // Split by the delimiter\n\n// Check if the split is successful\nif(parts.length == 2) {\n    msg.msgEncrypted = parts[0];\n    msg.hashEncrypted = parts[1];\n} else {\n    node.error(\"Invalid payload format\", msg);\n    return null; // Stop the flow if the format is not as expected\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 620,
+        "wires": [
+            [
+                "96cd2b298aa1fabb"
+            ]
+        ]
+    },
+    {
+        "id": "7cfd9868dbafea19",
+        "type": "mqtt out",
+        "z": "1ef184365338606a",
+        "name": "",
+        "topic": "usrAction2",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0ec95b9bdb8e7501",
+        "x": 310,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "3c06b399dc2107ee",
+        "type": "ui_switch",
+        "z": "1ef184365338606a",
+        "name": "Lamp Toggle",
+        "label": "Lamp Toggle",
+        "tooltip": "",
+        "group": "7989444b934d9ec1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 130,
+        "y": 980,
+        "wires": [
+            [
+                "7cfd9868dbafea19"
+            ]
+        ]
+    },
+    {
+        "id": "945ffe3411540929",
+        "type": "ui_audio",
+        "z": "1ef184365338606a",
+        "name": "",
+        "group": "7989444b934d9ec1",
+        "voice": "Google US English",
+        "always": false,
+        "x": 500,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "338c4ad6209ee545",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "Someone detected",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 1100,
+        "wires": [
+            [
+                "945ffe3411540929"
+            ]
+        ]
+    },
+    {
+        "id": "a447945dfe7706d4",
+        "type": "mqtt in",
+        "z": "1ef184365338606a",
+        "name": "",
+        "topic": "pirSensor2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0ec95b9bdb8e7501",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1100,
+        "wires": [
+            [
+                "338c4ad6209ee545",
+                "adab59370395764f"
+            ]
+        ]
+    },
+    {
+        "id": "adab59370395764f",
+        "type": "change",
+        "z": "1ef184365338606a",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "No one detected",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "Someone detected",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 1160,
+        "wires": [
+            [
+                "cf27fab8fddbcf8b"
+            ]
+        ]
+    },
+    {
+        "id": "cf27fab8fddbcf8b",
+        "type": "ui_text",
+        "z": "1ef184365338606a",
+        "group": "7989444b934d9ec1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PIR Sensor",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 510,
+        "y": 1160,
+        "wires": []
     }
 ]
