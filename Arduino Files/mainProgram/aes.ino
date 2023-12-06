@@ -1,3 +1,5 @@
+
+/*
 // Generate IV (once)
 void aes_init() {
   //Serial.println("gen_iv()");
@@ -22,19 +24,47 @@ String decrypt_impl(char * msg) {
   aesLib.decrypt64(msg, msgLen, (byte*)decrypted, aes_key, sizeof(aes_key), iv);
   return String(decrypted);
 }
+*/
 
-String hash_impl(char * msg){
-  int msgLen = strlen(msg);
-  SHA256 hasher = SHA256();
-  hasher.update(msg,msgLen);
 
-  int hashlen = hasher.hashSize();
-  char hash[hashlen] = {0};
-  hasher.finalize(hash,hashlen);
-
-  int encodedLen = base64_enc_len(hashlen);
-  char encodedHash[encodedLen];
-  base64_encode(encodedHash, hash, hashlen);
-
-  return String(encodedHash);
+void setupAES(){
+  aes128 = AES128();
+  aes128.setKey(aes_key,sizeof(aes_key));
 }
+
+// Function to perform PKCS#7 padding
+void pkcs7Padding(uint8_t *data, size_t &len, size_t maxLen) {
+    size_t paddingSize = 16 - (len % 16);
+    if (len + paddingSize > maxLen) {
+        // Handle error: not enough space for padding
+        return;
+    }
+    for (size_t i = 0; i < paddingSize; ++i) {
+        data[len + i] = static_cast<uint8_t>(paddingSize);
+    }
+    len += paddingSize;
+}
+
+// Function to encrypt and encode data in base64
+String encryptAndEncodeBase64(const uint8_t *input, size_t len) {
+    const size_t maxDataSize = 256;
+    uint8_t data[maxDataSize];
+    if (len > maxDataSize) {
+        return String("");  // Input too large
+    }
+    memcpy(data, input, len);
+
+    // Apply PKCS#7 padding
+    pkcs7Padding(data, len, maxDataSize);
+
+    // Encrypt each block and concatenate
+    size_t encryptedDataSize = len; // len has been updated to include padding
+    uint8_t encryptedData[encryptedDataSize]; // Ensure this buffer is large enough
+    for (size_t i = 0; i < len; i += 16) {
+        aes128.encryptBlock(encryptedData + i, &data[i]);
+    }
+
+    // Encode the entire concatenated encrypted data
+    return base64_encode(encryptedData, encryptedDataSize);
+}
+
